@@ -7,6 +7,7 @@ import { VerPaisComponent } from './ver-pais/ver-pais.component';
 import { PaisService } from './services/pais-service.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClient
+    HttpClient,
+    BrowserModule
   ],
   providers:[
     PaisService,

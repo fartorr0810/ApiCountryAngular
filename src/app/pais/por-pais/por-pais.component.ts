@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild ,EventEmitter, Output} 
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PaisService } from '../services/pais-service.service';
-import { PaisInterface } from '../interfaces/Pais.interface';
+import { PaisDatosInterface, PaisInterface } from '../interfaces/Pais.interface';
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
@@ -11,16 +11,18 @@ import { PaisInterface } from '../interfaces/Pais.interface';
 export class PorPaisComponent implements OnInit {
 
   busqueda:string='';
-  resultado:PaisInterface[]=[];
+  resultado:PaisDatosInterface[]=[];
   constructor(private route:ActivatedRoute,public serviciopais:PaisService) {
-    console.log(route.snapshot.params['id']);
    }
-  buscar(event:any):PaisInterface[]{
+  buscar(event:any):PaisDatosInterface[]{
     if(event.keyCode=="13"){
       this.serviciopais.buscarpais(event.target.value);
       return this.serviciopais.lalistapaises;
     }
   return this.resultado;
+  }
+  obtenerResultado():PaisDatosInterface[]{
+    return this.resultado;
   }
   ngOnInit(): void {
   }

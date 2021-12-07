@@ -44,6 +44,15 @@ export interface PaisInterface {
   capitalInfo:  CapitalInfo;
   postalCode:   PostalCode;
 }
+export interface PaisDatosInterface{
+  id: number,
+  nombre:Name,
+  capital?: string[],
+  flag: CoatOfArms,
+  poblation:number
+}
+
+
 
 export interface CapitalInfo {
   latlng: number[];
